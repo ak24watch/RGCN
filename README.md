@@ -37,7 +37,7 @@ python train.py --plot --save_plot <file_name>
 
 Replace `<file_name>` with the desired file name for the plot image.
 
-## Example Plot
+## Plot
 
 Below is an example plot of the best validation accuracies for all datasets:
 
