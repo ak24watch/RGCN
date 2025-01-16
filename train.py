@@ -31,6 +31,9 @@ def train_and_evaluate(dataset_name):
     print(f"Start training on {dataset_name}...")
     model.train()
     best_val_acc = 0
+    epochs_no_improve = 0
+    patience = 20
+
     for epoch in range(200):
         optimizer.zero_grad()
         logits = model.forward()
@@ -48,6 +51,9 @@ def train_and_evaluate(dataset_name):
 
         if val_acc > best_val_acc:
             best_val_acc = val_acc
+            epochs_no_improve = 0
+        else:
+            epochs_no_improve += 1
 
         print(
             "Epoch {:05d} | ".format(epoch)
@@ -58,6 +64,13 @@ def train_and_evaluate(dataset_name):
                 val_acc, val_loss.item()
             ),
         )
+
+        if epochs_no_improve >= patience:
+            print(
+                f"Early stopping at epoch {epoch} due to no improvement in validation accuracy for {patience} consecutive epochs."
+            )
+            break
+
     return best_val_acc
 
 
