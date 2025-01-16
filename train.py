@@ -80,7 +80,7 @@ if __name__ == "__main__":
         "--dataset",
         type=str,
         default="aifb",
-        help="Dataset name ('aifb', 'mutag', 'bgs', 'am').",
+        help="Dataset name ('aifb', 'mutag', 'bgs',).",
     )
     parser.add_argument(
         "--plot",
@@ -96,7 +96,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     if args.plot:
-        datasets = ["aifb", "mutag", "bgs", "am"]
+        datasets = ["aifb", "mutag", "bgs"]
         best_accuracies = []
         for dataset in datasets:
             best_acc = train_and_evaluate(dataset)
