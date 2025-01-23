@@ -1,6 +1,7 @@
 # RGCN for Entity Classification
 
 This project implements a Relational Graph Convolutional Network (RGCN) for entity classification using the DGL library. The model is trained and evaluated on various datasets, including AIFB, MUTAG, BGS, and AM.
+based on [Modeling Relational Data with Graph Convolutional Network](https://arxiv.org/abs/1703.06103)
 
 ## Project Structure
 
